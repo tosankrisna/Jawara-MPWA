@@ -1,0 +1,182 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.brand-logo {
+    top: 20%;
+    width: 120px;
+    z-index: 1;
+}
+
+.banner {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.651), rgba(0, 0, 0, 0.856)), url('../assets/images/banner.jpg');
+    padding: 150px 0 200px 0;
+}
+
+h5, h2, h4 {
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.about {
+    padding-top: 50px;
+}
+
+.about .row {
+    margin: 0;
+} 
+
+.about-content p {
+    margin-bottom: 60px;
+}
+
+.about img {
+    width: 400px;
+}
+
+.btn-klasemen {
+    display: none;
+    margin-top: 30px;
+}
+
+.match, 
+.standing, 
+.contact, 
+.top-scorer, 
+.matches,
+.detail-club,
+.detail-match,
+.favorite {
+    position: relative;
+    min-height: 400px;
+    padding: 45px 0;
+}
+
+.match .card-panel img {
+    height: 200px;
+}
+
+.input-field input:focus + label, textarea:focus + label {
+    color: #000 !important;
+}
+
+.row .input-field input:focus, textarea:focus {
+    border-bottom: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.social {
+    margin: 10px 0;
+}
+
+.card-content .date, 
+.card-action, 
+.klasemen-content,
+.topscorer-content,
+.club-item {
+    font-family: 'Lato', sans-serif;
+}
+
+.match-content {
+    min-height: 40px;
+    color: #000;
+}
+
+.date, .matchday {
+    color: #000;
+}
+
+.team-logo {
+    width: 20px;
+}
+
+.btn-submit {
+    left: -10px;
+}
+
+.club-logo {
+    width: 150px;
+}
+
+.panel-club {
+    padding: 50px 0;
+}
+
+.club-name {
+    font-weight: bold;
+    color: #FF8F00;
+}
+
+.preloader-wrapper {
+    position: absolute;
+    top : 20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.card-panel {
+    min-height: 250px;
+    position: relative;
+}
+
+.web-link {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    padding-bottom: 3px;
+}
+
+.save-club {
+    margin: 15px;
+}
+
+.club-card {
+    height: 320px;
+    width: 100%;
+}
+
+.club-card img {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 15px;
+}
+
+.club-card .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF8F00;
+}
+
+.jadwal-head {
+    margin-top: 50px;
+}
+
+.club-fav, .match-fav {
+    min-height: 100px;
+}
+
+.venue {
+    margin-bottom: 40px;
+}
+
+.statistik {
+    font-weight: bold;
+}
+
+.match-card {
+    color: #000;
+    width: 100%;
+    padding: 5px;
+    height: 250px;
+}
+
+.match-card h5{
+    font-size: 1.5em;
+}

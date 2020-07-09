@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawara</title>
+    <meta name="description" content="Jawara Football App" />
+    <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
+    <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
+    <link rel="stylesheet" href="./css/materialize.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="black" role="navigation">
+            <div class="nav-wrapper container">
+                <img src="./assets/images/logo.png" alt="Jawara Logo" class="brand-logo" id="logo-container">
+                <a href="#" class="sidenav-trigger" data-target="nav-mobile"><i class="material-icons white-text menu">menu</i></a>
+                
+                <ul class="topnav right hide-on-med-and-down"></ul>
+                <ul id="nav-mobile" class="sidenav"></ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="body-content"></div>
+        <div id="match-favorit"></div>
+    </main>
+
+    <footer class="page-footer black">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Jawara</h5>
+                    <p class="grey-text text-lighten-4">Gudangnya informasi sepak bola liga inggris. Terupdate, terkini, dan terpercaya.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Sosial Media</h5>
+                    <ul>
+                        <li class="social">
+                            <a class="grey-text text-lighten-3" href="https://www.instagram.com" target="_blank">Instagram</a>
+                        </li>
+                        <li class="social">
+                            <a class="grey-text text-lighten-3" href="https://www.facebook.com" target="_blank">Facebook</a>
+                        </li>
+                        <li class="social">
+                            <a class="grey-text text-lighten-3" href="https://www.twitter.com" target="_blank">Twitter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <span>Dicoding Submission © 2020</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/materialize.min.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/idb.js"></script>
+    <script src="./js/db.js"></script>
+    <script src="./js/dateConvert.js"></script>
+    <script src="./js/components/klasemen.js"></script>
+    <script src="./js/components/latest_jadwal.js"></script>
+    <script src="./js/components/topscorer.js"></script>
+    <script src="./js/components/jadwal.js"></script>
+    <script src="./js/components/detail_club.js"></script>
+    <script src="./js/components/detail_match.js"></script>
+    <script src="./js/components/saved_club.js"></script>
+    <script src="./js/components/saved_match.js"></script>
+
+    <script>
+
+        if(!('serviceWorker' in navigator)) {
+            console.error('ServiceWorker: Browser tidak mendukung!');
+        } else {
+            registerServiceWorker();
+        }
+
+        function registerServiceWorker() {
+            return navigator.serviceWorker.register('service-worker.js')
+                .then(function(registration) {
+                    console.log(
+                        'ServiceWorker: Pendaftaran berhasil. Scope: ',
+                        registration.scope
+                    );
+                    return registration;
+                })
+                .catch(function(error) {
+                    console.error('ServiceWorker: Pendaftaran gagal. Error: ', error);
+                });
+        }
+
+        if ('Notification' in window) {
+            requestPermission();
+        } else {
+            console.log('Browser tidak mendukung fitur notifikasi');
+        }
+
+        function requestPermission() {
+            Notification.requestPermission().then(function(result) {
+                if (result === 'denied') {
+                    console.log('Fitur notifikasi tidak diijinkan');
+                    return;
+                } else if (result === 'default') {
+                    console.log('Pengguna menutup kotak dialog permintaan ijin');
+                    return;
+                }
+
+                console.log('Fitur notifikasi diijinkan');
+            })
+        }
+
+        if (('PushManager' in window)) {
+            navigator.serviceWorker.getRegistration().then(function(registration) {
+                registration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array('BJhmFAikmq5vcK_aV0TKuhl8Y2YE9m-pafIR3jrAZ58o2ofhaIa48CFv7T9IB8cPFSDiJ6MhnXgDuxIR6g8bfHY')
+                }).then(function(subscribe) {
+                    console.log('Berhasil melakukan subscribe dengan endpoint: ', subscribe.endpoint);
+                    console.log('Berhasil melakukan subscribe dengan p256dh key: ', btoa(String.fromCharCode.apply(
+                        null, new Uint8Array(subscribe.getKey('p256dh'))
+                    )));
+                    console.log('Berhasil melakukan subscribe dengan auth key: ', btoa(String.fromCharCode.apply(
+                        null, new Uint8Array(subscribe.getKey('auth'))
+                    )));
+                }).catch(function(e) {
+                    console.log('Tidak dapat melakukan subscribe ', e.message);
+                });
+            });
+        }
+
+        function urlBase64ToUint8Array(base64String) {
+            const padding = '='.repeat((4 - base64String.length % 4) % 4);
+            const base64 = (base64String + padding)
+                .replace(/-/g, '+')
+                .replace(/_/g, '/');
+            const rawData = window.atob(base64);
+            const outputArray = new Uint8Array(rawData.length);
+            for (let i = 0; i < rawData.length; ++i) {
+                outputArray[i] = rawData.charCodeAt(i);
+            }
+            return outputArray;
+        }
+
+    </script>
+
+</body>
+</html>
