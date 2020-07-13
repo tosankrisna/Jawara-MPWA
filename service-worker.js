@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Jawara-v24';
+const CACHE_NAME = 'Jawara-v25';
 const urlsToCache = [
     '/',
     '/index.html',
