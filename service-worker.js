@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Jawara-v23';
+const CACHE_NAME = 'Jawara-v24';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -38,6 +38,7 @@ const urlsToCache = [
     '/script/helper/requestPermission.js',
     '/script/helper/serviceWorkerRegister.js',
     '/script/view/main.js',
+    '/style/material-icons.css',
     '/style/materialize.min.css',
     '/style/style.css',
     '/assets/fonts/Lato.ttf',

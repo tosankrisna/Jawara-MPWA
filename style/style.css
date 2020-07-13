@@ -1,8 +1,15 @@
-@import '../assets/fonts/Lato.ttf';
-@import '../assets/fonts/Raleway.ttf';
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/fonts/Raleway.ttf');
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/fonts/Lato.ttf');
+}
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
 }
 
 .brand-logo {
@@ -35,7 +42,7 @@ h5, h2, h4 {
 
 .about-content p {
     margin-bottom: 60px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato';
 }
 
 .about img {
@@ -75,7 +82,7 @@ h5, h2, h4 {
 .klasemen-content,
 .topscorer-content,
 .club-item {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato';
 }
 
 .match-content {
