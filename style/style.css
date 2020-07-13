@@ -1,3 +1,6 @@
+@import '../assets/fonts/Lato.ttf';
+@import '../assets/fonts/Raleway.ttf';
+
 body {
     font-family: 'Raleway', sans-serif;
 }
@@ -32,15 +35,11 @@ h5, h2, h4 {
 
 .about-content p {
     margin-bottom: 60px;
+    font-family: 'Lato', sans-serif;
 }
 
 .about img {
     width: 400px;
-}
-
-.btn-klasemen {
-    display: none;
-    margin-top: 30px;
 }
 
 .match, 
@@ -48,9 +47,7 @@ h5, h2, h4 {
 .contact, 
 .top-scorer, 
 .matches,
-.detail-club,
-.detail-match,
-.favorite {
+.team {
     position: relative;
     min-height: 400px;
     padding: 45px 0;
@@ -73,7 +70,7 @@ h5, h2, h4 {
     margin: 10px 0;
 }
 
-.card-content .date, 
+.card-content p, 
 .card-action, 
 .klasemen-content,
 .topscorer-content,
@@ -82,11 +79,7 @@ h5, h2, h4 {
 }
 
 .match-content {
-    min-height: 40px;
-    color: #000;
-}
-
-.date, .matchday {
+    min-height: 80px;
     color: #000;
 }
 
@@ -106,12 +99,12 @@ h5, h2, h4 {
     padding: 50px 0;
 }
 
-.club-name {
+.team-name {
     font-weight: bold;
-    color: #FF8F00;
+    font-size: 1.1em;
 }
 
-.preloader-wrapper {
+.preloader {
     position: absolute;
     top : 20%;
     left: 0;
@@ -120,63 +113,71 @@ h5, h2, h4 {
     margin: auto;
 }
 
+.team-favorite,
+.match-favorite {
+    position: relative;
+    min-height: 100px;
+    padding: 25px 0;
+}
+
+.team-favorite {
+    margin-top: 20px;
+}
+
+.match-favorite {
+    margin-bottom: 40px;
+}
+
 .card-panel {
     min-height: 250px;
     position: relative;
-}
-
-.web-link {
-    color: #000;
-    font-weight: bold;
-    border-bottom: 2px solid #000;
-    padding-bottom: 3px;
 }
 
 .save-club {
     margin: 15px;
 }
 
-.club-card {
+.club-card, .team-card {
     height: 320px;
     width: 100%;
+    margin-bottom: 40px;
 }
 
-.club-card img {
+.club-card img, .team-card img {
     max-height: 200px;
     max-width: 200px;
     margin: auto;
     padding: 15px;
 }
 
-.club-card .card-title {
+.club-card .card-title, .team-card .card-title {
     font-size: 20px;
     font-weight: bold;
-    color: #FF8F00;
 }
 
 .jadwal-head {
     margin-top: 50px;
 }
 
-.club-fav, .match-fav {
+.team-fav, .match-fav {
     min-height: 100px;
-}
-
-.venue {
-    margin-bottom: 40px;
-}
-
-.statistik {
-    font-weight: bold;
 }
 
 .match-card {
     color: #000;
     width: 100%;
     padding: 5px;
-    height: 250px;
+    height: 300px;
 }
 
 .match-card h5{
     font-size: 1.5em;
+}
+
+.message {
+    padding: 10px 15px;
+}
+
+.message p {
+    font-weight: bold;
 }

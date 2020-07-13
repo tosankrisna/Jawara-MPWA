@@ -1,59 +1,79 @@
-const CACHE_NAME = 'Jawara-v16.1.3';
+const CACHE_NAME = 'Jawara-v23';
 const urlsToCache = [
     '/',
     '/index.html',
+    '/app.js',
     '/service-worker.js',
     '/manifest.json',
+    '/push.js',
     '/nav.html',
-    '/detail-club.html',
-    '/detail-match.html',
     '/pages/beranda.html',
     '/pages/jadwal.html',
     '/pages/klasemen.html',
-    '/pages/top-scorer.html',
+    '/pages/topScorer.html',
+    '/pages/team.html',
     '/pages/favorit.html',
-    '/js/materialize.min.js',
-    '/js/nav.js',
-    '/js/api.js',
-    '/js/idb.js',
-    '/js/db.js',
-    '/js/dateConvert.js',
-    '/js/components/latest_jadwal.js',
-    '/js/components/jadwal.js',
-    '/js/components/klasemen.js',
-    '/js/components/topscorer.js',
-    '/js/components/detail_club.js',
-    '/js/components/detail_match.js',
-    '/js/components/saved_club.js',
-    '/js/components/saved_match.js',
-    '/css/materialize.min.css',
-    '/css/style.css',
+    '/script/materialize.min.js',
+    '/script/idb.js',
+    '/script/components/jadwal.js',
+    '/script/components/klasemen.js',
+    '/script/components/latestJadwal.js',
+    '/script/components/savedTeam.js',
+    '/script/components/savedMatch.js',
+    '/script/components/team.js',
+    '/script/components/topScorer.js',
+    '/script/data/api.js',
+    '/script/data/dataJadwal.js',
+    '/script/data/dataKlasemen.js',
+    '/script/data/dataLatestJadwal.js',
+    '/script/data/dataLatestKlasemen.js',
+    '/script/data/dataSavedMatch.js',
+    '/script/data/dataSavedTeam.js',
+    '/script/data/dataTeam.js',
+    '/script/data/dataTopScorer.js',
+    '/script/database/db.js',
+    '/script/database/dbMatch.js',
+    '/script/database/dbTeam.js',
+    '/script/helper/convertData.js',
+    '/script/helper/requestPermission.js',
+    '/script/helper/serviceWorkerRegister.js',
+    '/script/view/main.js',
+    '/style/materialize.min.css',
+    '/style/style.css',
+    '/assets/fonts/Lato.ttf',
+    '/assets/fonts/Raleway.ttf',
     '/assets/icons/favicon.png',
+    '/assets/icons/icon-72x72.png',
+    '/assets/icons/icon-96x96.png',
+    '/assets/icons/icon-128x128.png',
+    '/assets/icons/icon-144x144.png',
     '/assets/icons/icon-192x192.png',
+    '/assets/icons/icon-256x256.png',
+    '/assets/icons/icon-384x384.png',
     '/assets/icons/icon-512x512.png',
     '/assets/images/banner.jpg',
     '/assets/images/logo.png',
     '/assets/images/player.png',
 ];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', (event) => {
     console.log('ServiceWorker: Menginstall...');
 
     event.waitUntil(
-        caches.open(CACHE_NAME).then(function(cache) {
+        caches.open(CACHE_NAME).then((cache) => {
             console.log('ServiceWorker: Membuka cache...');
             return cache.addAll(urlsToCache);
         })
     )
 })
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', (event) => {
     const base_url = 'https://api.football-data.org/v2/';
 
     if (event.request.url.indexOf(base_url) > -1) {
         event.respondWith(
-            caches.open(CACHE_NAME).then(function(cache) {
-                return fetch(event.request).then(function(response) {
+            caches.open(CACHE_NAME).then((cache) => {
+                return fetch(event.request).then((response) => {
                     cache.put(event.request.url, response.clone());
                     return response;
                 })
@@ -61,20 +81,20 @@ self.addEventListener('fetch', function(event) {
         );
     } else {
         event.respondWith(
-            caches.match(event.request).then(function(response) {
+            caches.match(event.request).then((response) => {
                 return response || fetch (event.request);
             })
         )
     }
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', (event) => {
     console.log('Aktivasi service worker baru');
 
     event.waitUntil(
-        caches.keys().then(function(cacheNames) {
+        caches.keys().then((cacheNames) => {
             return Promise.all(
-                cacheNames.map(function(cacheName) {
+                cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME && cacheName.startsWith('Jawara')) {
                         return caches.delete(cacheName);
                     }
@@ -84,7 +104,7 @@ self.addEventListener('activate', function(event) {
     );
 });
 
-self.addEventListener('push', function(event) {
+self.addEventListener('push', (event) => {
     let body;
 
     if (event.data) {

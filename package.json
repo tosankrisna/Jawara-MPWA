@@ -1,0 +1,25 @@
+{
+  "name": "jawara",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "idb": "^2.1.3",
+    "materialize": "^1.0.0",
+    "web-push": "^3.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tosankrisna/pwa-submission2.git"
+  },
+  "author": "Tosan Krisna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tosankrisna/pwa-submission2/issues"
+  },
+  "homepage": "https://github.com/tosankrisna/pwa-submission2#readme"
+}
