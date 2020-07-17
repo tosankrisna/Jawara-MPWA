@@ -16,7 +16,7 @@ export function saveMatchForLater(match) {
             const tx = db.transaction('matches', 'readwrite');
             const store = tx.objectStore('matches');
 
-            store.add(dataToStore);
+            store.put(dataToStore);
             return tx.complete;
         })
         .then(() => {

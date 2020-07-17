@@ -18,7 +18,7 @@ export function saveTeamForLater(data) {
             const tx = db.transaction('teams', 'readwrite');
             const store = tx.objectStore('teams');
 
-            store.add(dataToStore);
+            store.put(dataToStore);
             return tx.complete;
         })
         .then(() => {
