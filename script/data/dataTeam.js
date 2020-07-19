@@ -17,9 +17,14 @@ function getTeam() {
 
                     for(let i = 0; i < data.teams.length; i++) {
                         const btnSavedTeam = document.querySelectorAll('.btn-saved-team')[i];
+                        const hideElems = document.querySelectorAll('.hide')[i];
+
                         btnSavedTeam.addEventListener('click', () => {
                             const data = JSON.parse(decodeURIComponent(btnSavedTeam.getAttribute('data-team')));
+
                             saveTeamForLater(data);
+                            btnSavedTeam.classList.add('disabled');
+                            hideElems.classList.remove('hide');
                         })
                     }
                 });
@@ -45,9 +50,14 @@ function getTeam() {
 
         for(let i = 0; i < data.teams.length; i++) {
             const btnSavedTeam = document.querySelectorAll('.btn-saved-team')[i];
+            const hideElems = document.querySelectorAll('.hide')[i];
+
             btnSavedTeam.addEventListener('click', () => {
                 const data = JSON.parse(decodeURIComponent(btnSavedTeam.getAttribute('data-team')));
+
                 saveTeamForLater(data);
+                btnSavedTeam.classList.add('disabled');
+                hideElems.classList.remove('hide');
             })
         }
 

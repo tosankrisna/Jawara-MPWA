@@ -19,9 +19,14 @@ function getJadwal() {
 
                     for(let i = 0; i < data.matches.length; i++) {
                         const btnSavedJadwal = document.querySelectorAll('.btn-saved-jadwal')[i];
+                        const hideElems = document.querySelectorAll('.hide')[i];
+
                         btnSavedJadwal.addEventListener('click', () => {
                             const data = JSON.parse(decodeURIComponent(btnSavedJadwal.getAttribute('data-match')));
+
                             saveMatchForLater(data);
+                            btnSavedJadwal.classList.add('disabled');
+                            hideElems.classList.remove('hide');
                         })
                     }
                 })
@@ -47,9 +52,14 @@ function getJadwal() {
 
         for(let i = 0; i < data.matches.length; i++) {
             const btnSavedJadwal = document.querySelectorAll('.btn-saved-jadwal')[i];
+            const hideElems = document.querySelectorAll('.hide')[i];
+
             btnSavedJadwal.addEventListener('click', () => {
                 const data = JSON.parse(decodeURIComponent(btnSavedJadwal.getAttribute('data-match')));
+
                 saveMatchForLater(data);
+                btnSavedJadwal.classList.add('disabled');
+                hideElems.classList.remove('hide');
             })
         }
     })

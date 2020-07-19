@@ -22,10 +22,10 @@ export function saveTeamForLater(data) {
             return tx.complete;
         })
         .then(() => {
-            M.toast({html: 'Data berhasil ditambahkan ke favorit'})
+            M.toast({html: 'Data team berhasil ditambahkan ke favorit'})
         })
         .catch(() => {
-            M.toast({html: 'Data sudah ditambahkan sebelumnya'})
+            M.toast({html: 'Data team sudah ditambahkan sebelumnya'})
         })
 }
 
@@ -57,9 +57,9 @@ export function deleteTeam(id) {
             return tx.complete;
         })
         .then(() => {
-            M.toast({html: 'Data berhasil dihapus'})
+            M.toast({html: 'Data team berhasil dihapus'})
         })
         .catch(() => {
-            M.toast({html: 'Terjadi kesalahan dalam menghapus data'})
-        })
+            M.toast({html: 'Terjadi kesalahan dalam menghapus data team'})
+        }) 
 }

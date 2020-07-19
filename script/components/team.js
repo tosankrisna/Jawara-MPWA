@@ -16,6 +16,7 @@ function teams(data) {
                 </div>
                 <div class="card-content">
                     <p class="card-title center">${data.name.replace('FC', '')}</p>
+                    <p class="hide center amber">Tersimpan di favorit</p>
                 </div>
             </div>
         </div>

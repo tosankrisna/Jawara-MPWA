@@ -121,6 +121,10 @@ h5, h2, h4 {
     margin-bottom: 40px;
 }
 
+.matchday {
+    min-height: 115px;
+}
+
 .card-panel {
     min-height: 250px;
     position: relative;
@@ -131,7 +135,7 @@ h5, h2, h4 {
 }
 
 .club-card, .team-card {
-    height: 320px;
+    height: 350px;
     width: 100%;
     margin-bottom: 40px;
 }

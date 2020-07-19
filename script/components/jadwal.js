@@ -21,6 +21,7 @@ function jadwal(team) {
                 </div>
                 <div class="card-action center matchday">
                     <h6>Match Day ${team.matchday}</h6>
+                    <p class="hide center amber">Tersimpan di favorit</p>
                 </div>
             </div>
         </div>

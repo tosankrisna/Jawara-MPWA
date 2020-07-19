@@ -20,10 +20,10 @@ export function saveMatchForLater(match) {
             return tx.complete;
         })
         .then(() => {
-            M.toast({html: 'Data berhasil ditambahkan ke favorit'})
+            M.toast({html: 'Data laga berhasil ditambahkan ke favorit'})
         })
         .catch(() => {
-            M.toast({html: 'Data sudah ditambahkan sebelumnya'})
+            M.toast({html: 'Data laga sudah ditambahkan sebelumnya'})
         })
 }
 
@@ -55,9 +55,9 @@ export function deleteMatch(id) {
             return tx.complete;
         })
         .then(() => {
-            M.toast({html: 'Data berhasil dihapus'})
+            M.toast({html: 'Data laga berhasil dihapus'})
         })
         .catch(() => {
-            M.toast({html: 'Terjadi kesalahan dalam menghapus data'})
+            M.toast({html: 'Terjadi kesalahan dalam menghapus data laga'})
         })
 }
