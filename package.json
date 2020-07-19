@@ -3,21 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "dependencies": {
-    "web-push": "^3.4.4"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tosankrisna/pwa-submission2.git"
-  },
   "author": "Tosan Krisna",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tosankrisna/pwa-submission2/issues"
+  "dependencies": {
+    "web-push": "^3.4.4"
   },
-  "homepage": "https://github.com/tosankrisna/pwa-submission2#readme"
+  "devDependencies": {}
 }
