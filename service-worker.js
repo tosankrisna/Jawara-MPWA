@@ -217,7 +217,7 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
     new RegExp('https://api.football-data.org/v2/'),
     workbox.strategies.staleWhileRevalidate({
-        cacheName: 'cache-api',
+        cacheName: 'cache-api'
     })
 );
 
@@ -234,6 +234,13 @@ workbox.routing.registerRoute(
             maxAgeSeconds: 30 * 24 * 60 * 60,
         }),
         ]
+    })
+);
+
+workbox.routing.registerRoute(
+    /.*(?:googleapis|gstatic)\.com/,
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'cache-fonts'
     })
 );
 
